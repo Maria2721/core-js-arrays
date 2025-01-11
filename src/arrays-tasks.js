@@ -591,8 +591,27 @@ function shiftArray(arr, n) {
  *   sortDigitNamesByNumericOrder([ 'nine','eight','nine','eight' ]) => [ 'eight','eight','nine','nine']
  *   sortDigitNamesByNumericOrder([ 'one','one','one','zero' ]) => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const numbers = {
+    nine: 9,
+    eight: 8,
+    seven: 7,
+    six: 6,
+    five: 5,
+    four: 4,
+    three: 3,
+    two: 2,
+    one: 1,
+    zero: 0,
+  };
+  const reverseNumbers = Object.fromEntries(
+    Object.entries(numbers).map(([key, value]) => [value, key])
+  );
+
+  return arr
+    .map((num) => numbers[num])
+    .sort((a, b) => a - b)
+    .map((num) => reverseNumbers[num]);
 }
 
 /**
