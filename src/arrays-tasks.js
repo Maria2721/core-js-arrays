@@ -255,7 +255,7 @@ function toStringList(arr) {
  * Returns array containing only unique values from the specified array.
  *
  * @param {array} arr - The input array.
- * @return {array} - The array with unique values.
+ * @return {any[]} - The array with unique values.
  *
  * @example
  *   distinct([ 1, 2, 3, 3, 2, 1 ]) => [ 1, 2, 3 ]
@@ -263,8 +263,9 @@ function toStringList(arr) {
  *   distinct([ 1, 1, 2, 2, 3, 3, 4, 4]) => [ 1, 2, 3, 4]
  *   distinct([]) => []
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  const set = new Set(arr);
+  return Array.from(set);
 }
 
 /**
